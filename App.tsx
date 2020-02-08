@@ -5,6 +5,7 @@ import { Card } from './components/Card'
 import * as Icon from '@expo/vector-icons'
 import { NotificationIcon } from './components/Icons'
 import { Logo } from './components/Logo'
+import { logos, cards } from './data'
 
 interface Props { }
 interface State { }
@@ -23,19 +24,27 @@ export default class App extends React.Component<Props, State> {
             </TitleBar>
 
 
-            <ScrollView style={{ flexDirection: "row", padding: 20, paddingLeft: 12, paddingTop: 30 }} horizontal={true}>
-              <Logo image={require('./assets/logo-framerx.png')} text="logo text 1" />
-              <Logo image={require('./assets/logo-framerx.png')} text="logo text 2" />
-              <Logo image={require('./assets/logo-framerx.png')} text="logo text 3" />
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+              style={{ flexDirection: "row", padding: 20, paddingLeft: 12, paddingTop: 30 }} horizontal={true}>
+              {logos.map((logo, index) => (
+                <Logo key={index} image={logo.image} text={logo.text} />
+              ))}
 
 
             </ScrollView>
             <SubtitleBar>Some text SubtitleBar</SubtitleBar>
             <ScrollView horizontal={true} style={{ paddingBottom: 30 }} showsHorizontalScrollIndicator={false}>
-              <Card title="styled components 1" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
-              <Card title="styled components 2" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
-              <Card title="styled components 3" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
-              <Card title="styled components 4" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
+              {cards.map((card, index) => (
+                <Card
+                  key={index}
+                  title={card.title}
+                  image={card.image}
+                  caption={card.caption}
+                  logo={card.logo}
+                  subtitle={card.subtitle}
+                />
+              ))}
             </ScrollView>
           </ScrollView>
         </SafeAreaView>
