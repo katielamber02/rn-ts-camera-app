@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
 import { Card } from './components/Card'
+import * as Icon from '@expo/vector-icons'
 
 interface Props { }
 interface State { }
@@ -9,14 +10,24 @@ export default class App extends React.Component<Props, State> {
   render() {
     return (
       <Container>
-        <TitleBar>
-          <Avatar source={require('./assets/avatar.jpeg')} />
-          <Title>Hello world</Title>
-          <Name>Hello world</Name>
+        <SafeAreaView>
+          <ScrollView>
+            <TitleBar>
+              <Avatar source={require('./assets/avatar.jpeg')} />
+              <Title>Hello world</Title>
+              <Name>Hello world</Name>
+              <Icon.Ionicons name="ios-notifications" size={32} color="blue" style={{ position: "absolute", right: 20, top: 5 }} />
 
-        </TitleBar>
-        <SubtitleBar>Some text SubtitleBar</SubtitleBar>
-        <Card />
+            </TitleBar>
+            <SubtitleBar>Some text SubtitleBar</SubtitleBar>
+            <ScrollView horizontal={true} style={{ paddingBottom: 30 }} showsHorizontalScrollIndicator={false}>
+              <Card title="styled components 1" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
+              <Card title="styled components 2" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
+              <Card title="styled components 3" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
+              <Card title="styled components 4" image={require('./assets/background1.jpg')} capture="React Native" logo={require('./assets/avatar.jpeg')} subtitle="5 of 12 sections" />
+            </ScrollView>
+          </ScrollView>
+        </SafeAreaView>
       </Container>
     );
   }

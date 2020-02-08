@@ -3,17 +3,20 @@ import { StyleSheet, Text, View } from 'react-native';
 import styled from 'styled-components/native';
 
 
-export const Card = () => (
+export const Card = (props) => (
     <Container>
         <Cover>
-            <Image source={require('../assets/background1.jpg')} />
-            <Title>Title here to be shown</Title>
+            {/*            
+            <Image source={require('../assets/background1.jpg')} /> */}
+            <Image source={props.image} />
+            <Title>{props.title}</Title>
         </Cover>
         <Content>
-            <Logo source={require('../assets/avatar.jpeg')} />
+            {/* <Logo source={require('../assets/avatar.jpeg')} /> */}
+            <Logo source={props.logo} />
             <Wrapper>
-                <Caption>React Native</Caption>
-                <Subtitle>5 of 12 sections</Subtitle>
+                <Caption>{props.capture}</Caption>
+                <Subtitle>{props.subtitle}</Subtitle>
             </Wrapper>
         </Content>
     </Container>
