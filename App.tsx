@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
 import { Card } from './components/Card'
 import * as Icon from '@expo/vector-icons'
+import { NotificationIcon } from './components/Icons'
 
 interface Props { }
 interface State { }
@@ -16,8 +17,8 @@ export default class App extends React.Component<Props, State> {
               <Avatar source={require('./assets/avatar.jpeg')} />
               <Title>Hello world</Title>
               <Name>Hello world</Name>
-              <Icon.Ionicons name="ios-notifications" size={32} color="blue" style={{ position: "absolute", right: 20, top: 5 }} />
-
+              {/* <Icon.Ionicons name="ios-notifications" size={32} color="blue" style={{ position: "absolute", right: 20, top: 5 }} /> */}
+              <NotificationIcon style={{ position: "absolute", right: 20, top: 5 }} />
             </TitleBar>
             <SubtitleBar>Some text SubtitleBar</SubtitleBar>
             <ScrollView horizontal={true} style={{ paddingBottom: 30 }} showsHorizontalScrollIndicator={false}>
