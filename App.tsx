@@ -7,6 +7,7 @@ import { NotificationIcon } from './components/Icons'
 import { Logo } from './components/Logo'
 import { logos, cards, courses } from './data'
 import { Course } from './components/Course'
+import Menu from './components/Menu'
 
 interface Props { }
 interface State { }
@@ -14,6 +15,7 @@ export default class App extends React.Component<Props, State> {
   render() {
     return (
       <Container>
+        <Menu />
         <SafeAreaView>
           <ScrollView>
             <TitleBar>
