@@ -5,7 +5,8 @@ import { Card } from './components/Card'
 import * as Icon from '@expo/vector-icons'
 import { NotificationIcon } from './components/Icons'
 import { Logo } from './components/Logo'
-import { logos, cards } from './data'
+import { logos, cards, courses } from './data'
+import { Course } from './components/Course'
 
 interface Props { }
 interface State { }
@@ -46,6 +47,20 @@ export default class App extends React.Component<Props, State> {
                 />
               ))}
             </ScrollView>
+
+            <SubtitleBar>Popular Courses</SubtitleBar>
+            {courses.map((course, index) => (
+              <Course
+                key={index}
+                image={course.image}
+                title={course.title}
+                subtitle={course.subtitle}
+                logo={course.logo}
+                author={course.author}
+                avatar={course.avatar}
+                caption={course.caption}
+              />
+            ))}
           </ScrollView>
         </SafeAreaView>
       </Container>
